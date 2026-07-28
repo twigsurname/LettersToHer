@@ -30,3 +30,11 @@ GITHUB PAGES
 Upload every file and folder to one GitHub repository.
 Then go to:
 Settings > Pages > Deploy from a branch > main > /(root) > Save
+
+
+VERSION 2 CHANGES
+- Envelope-shaped topic cards
+- Open envelope behind each paper letter
+- Removed subtitle text under each topic
+- Removed light mode
+- Cleaner starry-night background

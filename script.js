@@ -206,7 +206,6 @@ function renderHome() {
     link.innerHTML = `
       <span class="letter-icon">${letter.icon}</span>
       <h2>${letter.cardTitle}</h2>
-      <p>${letter.hint}</p>
     `;
     grid.appendChild(link);
   });
@@ -235,32 +234,8 @@ function renderLetter() {
 
   document.getElementById("missionText").textContent = letter.mission;
 
-  setupModeToggle();
   setupLetterHug();
   setupAudio(letter);
-}
-
-function setupModeToggle() {
-  const toggle = document.getElementById("modeToggle");
-  const body = document.body;
-  const icon = toggle.querySelector(".mode-icon");
-  const label = toggle.querySelector(".mode-label");
-
-  const apply = (mode) => {
-    const isLight = mode === "light";
-    body.classList.toggle("light-mode", isLight);
-    body.classList.toggle("dark-mode", !isLight);
-    icon.textContent = isLight ? "🌙" : "☀️";
-    label.textContent = isLight ? "Dark mood" : "Light mood";
-  };
-
-  let currentMode = "dark";
-  apply(currentMode);
-
-  toggle.addEventListener("click", () => {
-    currentMode = currentMode === "dark" ? "light" : "dark";
-    apply(currentMode);
-  });
 }
 
 function setupLetterHug() {
