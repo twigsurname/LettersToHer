@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#171228" />
+  <title>Open When...</title>
+  <link rel="stylesheet" href="styles.css?v=51" />
+</head>
+<body class="home-page">
+  <main class="home-shell">
+    <section class="hero">
+      <p class="eyebrow">A little place made just for you</p>
+      <h1>Open When...</h1>
+      <p class="hero-copy">Choose what your heart needs tonight.</p>
+
+      <button id="hugButton" class="hug-button" type="button">
+        <span>I need a hug</span>
+        <small>tap me</small>
+      </button>
+
+      <div id="hugResult" class="hug-result" aria-live="polite"></div>
+    </section>
+
+    <section class="letters-section" aria-label="Open when letters">
+      <div id="lettersGrid" class="letters-grid"></div>
+    </section>
+
+    <footer>
+      Made with love, for the nights that feel a little too quiet.
+    </footer>
+  </main>
+<script src="script.js?v=51"></script>
+
+  <button id="musicToggle" class="music-toggle" type="button" aria-label="Play background music" title="Play background music">▶</button>
+  <audio id="backgroundMusic" src="audio/soft-night-music.mp3" loop preload="auto"></audio>
+
+</body>
+</html>
