@@ -47,3 +47,9 @@ REFERENCE-MATCH UPDATE
 - Envelope content placement now follows the supplied reference.
 - Flat text symbols are used instead of shaded emoji artwork.
 - Added original soft looping background music and a small mute button.
+
+TAN + MUSIC FIX
+- Original emojis restored.
+- All envelope text uppercase.
+- Light tan opposite gradients added.
+- Music button now starts audio on the first click.

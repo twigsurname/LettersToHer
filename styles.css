@@ -906,3 +906,25 @@ footer {
     height: 32px;
   }
 }
+
+
+/* Tan envelope + uppercase correction */
+.letter-card {
+  background: linear-gradient(135deg, #eee2cf 0%, #e5d5be 100%) !important;
+}
+
+.letter-card::before {
+  background: linear-gradient(135deg, #e8dbc7 0%, #d8c4a8 100%) !important;
+}
+
+.card-open-when,
+.card-description {
+  text-transform: uppercase !important;
+}
+
+.letter-icon {
+  font-family: "Apple Color Emoji", "Segoe UI Emoji", "Noto Color Emoji", sans-serif !important;
+  color: initial !important;
+  text-shadow: none !important;
+  filter: none !important;
+}

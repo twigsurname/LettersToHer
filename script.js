@@ -3,7 +3,7 @@ const letters = [
     id: "lonely",
     title: "you feel lonely",
     cardTitle: "Open when you feel lonely",
-    icon: "♡",
+    icon: "🌙",
     hint: "For the quiet nights",
     body: [
       "Hi, my love.",
@@ -64,7 +64,7 @@ const letters = [
     id: "crying",
     title: "you’re crying",
     cardTitle: "Open when you’re crying",
-    icon: "☂",
+    icon: "🌧️",
     hint: "You can fall apart here",
     body: [
       "Come here, baby.",
@@ -94,7 +94,7 @@ const letters = [
     id: "sad",
     title: "you’re sad",
     cardTitle: "Open when you’re sad",
-    icon: "✿",
+    icon: "🫧",
     hint: "No pretending required",
     body: [
       "You do not have to cheer up for me.",
@@ -109,7 +109,7 @@ const letters = [
     id: "bored",
     title: "you’re bored",
     cardTitle: "Open when you’re bored",
-    icon: "✧",
+    icon: "🎲",
     hint: "A tiny distraction",
     body: [
       "Hi, bored baby.",
@@ -139,7 +139,7 @@ const letters = [
     id: "overthinking",
     title: "you’re overthinking",
     cardTitle: "Open when you’re overthinking",
-    icon: "∞",
+    icon: "💭",
     hint: "Come back to now",
     body: [
       "Your mind is trying to protect you by imagining every possible ending, but you do not need to live through things that have not happened.",
@@ -235,7 +235,7 @@ function renderHome() {
     link.innerHTML = `
       <span class="letter-icon" aria-hidden="true">${letter.icon}</span>
       <span class="card-open-when">OPEN WHEN</span>
-      <span class="card-description">${toTitleCase(letter.title)}</span>
+      <span class="card-description">${toTitleCase(letter.title).toUpperCase()}</span>
     `;
     grid.appendChild(link);
   });
@@ -313,50 +313,54 @@ function setupBackgroundMusic() {
   const button = document.getElementById("musicToggle");
   if (!audio || !button) return;
 
-  audio.volume = 0.16;
-  let started = false;
+  audio.volume = 0.22;
+  let hasStarted = false;
 
-  const updateButton = () => {
-    button.textContent = audio.muted ? "×" : "♪";
-    button.setAttribute("aria-label", audio.muted ? "Play background music" : "Mute background music");
-    button.title = audio.muted ? "Play background music" : "Mute background music";
+  const showPlay = () => {
+    button.textContent = "▶";
+    button.setAttribute("aria-label", "Play background music");
+    button.title = "Play background music";
   };
 
-  const startMusic = async () => {
-    if (started) return;
-    try {
-      await audio.play();
-      started = true;
-      updateButton();
-    } catch (_) {
-      // Browsers may wait for the first user interaction.
-    }
+  const showMute = () => {
+    button.textContent = "♪";
+    button.setAttribute("aria-label", "Mute background music");
+    button.title = "Mute background music";
   };
 
-  startMusic();
-
-  const beginOnFirstInteraction = () => {
-    startMusic();
-    document.removeEventListener("pointerdown", beginOnFirstInteraction);
-    document.removeEventListener("keydown", beginOnFirstInteraction);
+  const showMuted = () => {
+    button.textContent = "×";
+    button.setAttribute("aria-label", "Unmute background music");
+    button.title = "Unmute background music";
   };
 
-  document.addEventListener("pointerdown", beginOnFirstInteraction);
-  document.addEventListener("keydown", beginOnFirstInteraction);
+  showPlay();
 
   button.addEventListener("click", async (event) => {
     event.stopPropagation();
 
-    if (!started) {
-      await startMusic();
-      if (!started) return;
+    if (!hasStarted) {
+      try {
+        audio.muted = false;
+        await audio.play();
+        hasStarted = true;
+        showMute();
+      } catch (_) {
+        showPlay();
+      }
+      return;
     }
 
     audio.muted = !audio.muted;
-    updateButton();
+    if (audio.muted) {
+      showMuted();
+    } else {
+      try {
+        await audio.play();
+      } catch (_) {}
+      showMute();
+    }
   });
-
-  updateButton();
 }
 
 setupBackgroundMusic();
