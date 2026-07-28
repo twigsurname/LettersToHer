@@ -540,118 +540,98 @@ footer {
   }
 }
 
-/* v3 refinements */
-.letters-grid {
-  gap: 18px;
+
+/* V2 requested adjustments */
+.home-page::before,
+.letter-page::before {
+  background-image:
+    radial-gradient(circle, rgba(255,255,255,.95) 0 1px, transparent 1.5px),
+    radial-gradient(circle, rgba(255,230,190,.52) 0 1px, transparent 1.5px),
+    radial-gradient(circle, rgba(255,255,255,.38) 0 1px, transparent 1.5px),
+    radial-gradient(circle, rgba(255,255,255,.68) 0 1px, transparent 1.5px);
+  background-size: 173px 137px, 251px 193px, 317px 229px, 421px 311px;
+  background-position: 17px 29px, 83px 11px, 147px 91px, 31px 173px;
+  opacity: .58;
 }
 
 .letter-card {
+  min-height: 118px;
   aspect-ratio: 2 / 1;
-  min-height: 0;
-  padding: 0 20px 18px;
+  padding: 15px 16px 13px;
   display: flex;
   flex-direction: column;
-  justify-content: flex-end;
   align-items: center;
-  overflow: visible;
-  border-radius: 5px;
-  color: #efe9e1;
-  background: linear-gradient(145deg, rgba(177, 169, 157, .46), rgba(132, 126, 119, .34));
-  border: 1px solid rgba(235, 227, 216, .2);
-  box-shadow: 0 12px 28px rgba(0,0,0,.2), inset 0 1px 0 rgba(255,255,255,.08);
-  backdrop-filter: blur(5px);
-  -webkit-backdrop-filter: blur(5px);
+  justify-content: center;
 }
 
 .letter-card::before {
-  height: 62%;
-  background: linear-gradient(160deg, rgba(201,194,184,.47), rgba(148,142,134,.37));
+  height: 48%;
   clip-path: polygon(0 0, 100% 0, 50% 82%);
-  border-bottom: 1px solid rgba(245,239,230,.12);
 }
 
 .letter-card::after {
-  height: 54%;
-  background:
-    linear-gradient(29deg, transparent 49.3%, rgba(239,233,225,.13) 50%, transparent 50.7%),
-    linear-gradient(151deg, transparent 49.3%, rgba(239,233,225,.13) 50%, transparent 50.7%);
+  display: none;
+}
+
+.card-open-when,
+.card-description,
+.letter-icon {
+  position: relative;
+  z-index: 2;
+  display: block;
+  text-align: center;
+}
+
+.card-open-when,
+.card-description {
+  font-family: "Inter", sans-serif;
+  font-weight: 500;
+  letter-spacing: .01em;
+}
+
+.card-open-when {
+  font-size: .78rem;
+  color: rgba(64,46,50,.76);
+  margin-bottom: 3px;
 }
 
 .letter-icon {
-  position: absolute;
-  z-index: 4;
-  top: 42%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  width: 46px;
-  height: 46px;
-  margin: 0;
-  display: grid;
-  place-items: center;
-  border-radius: 50%;
-  font-size: 1.35rem;
-  background:
-    radial-gradient(circle at 35% 28%, rgba(255,255,255,.24), transparent 25%),
-    linear-gradient(145deg, #8f5965, #6f3d49);
-  border: 1px solid rgba(255,235,220,.18);
-  box-shadow: 0 7px 14px rgba(0,0,0,.24), inset 0 0 0 3px rgba(77,35,45,.18);
+  margin: 0 0 3px;
+  font-size: 1.65rem;
+  line-height: 1;
+  filter: none;
 }
 
-.letter-card h2 {
-  font-family: "Inter", sans-serif;
-  font-size: .93rem;
-  font-weight: 400;
-  letter-spacing: .01em;
-  line-height: 1.25;
-  color: #f0ebe4;
-  text-shadow: 0 1px 8px rgba(0,0,0,.35);
+.card-description {
+  max-width: 95%;
+  font-size: .96rem;
+  line-height: 1.15;
+  color: #49383b;
 }
 
-.letter-card:hover .letter-icon,
-.letter-card:focus-visible .letter-icon {
-  transform: translate(-50%, -54%) scale(1.04);
+.letter-actions {
+  justify-content: center;
 }
 
-.paper-letter {
-  border-radius: 0;
-}
-
-.mission-strip {
-  border-radius: 0;
-  clip-path: polygon(
-    0 8px,
-    7px 4px,
-    3px 15px,
-    9px 24px,
-    2px 35px,
-    8px 47px,
-    1px 59px,
-    7px 72px,
-    0 100%,
-    100% 100%,
-    100% 9px,
-    calc(100% - 7px) 4px,
-    calc(100% - 3px) 16px,
-    calc(100% - 9px) 26px,
-    calc(100% - 2px) 37px,
-    calc(100% - 8px) 49px,
-    calc(100% - 1px) 61px,
-    calc(100% - 7px) 73px,
-    100% 100%
-  );
+.letter-actions .primary-button {
+  display: inline-block;
 }
 
 @media (max-width: 620px) {
   .letter-card {
-    min-height: 0;
-    padding: 0 12px 14px;
+    min-height: 104px;
+    padding: 12px 10px 10px;
   }
-  .letter-card h2 {
-    font-size: .82rem;
+
+  .card-open-when {
+    font-size: .7rem;
   }
+
   .letter-icon {
-    width: 40px;
-    height: 40px;
-    font-size: 1.15rem;
+    font-size: 1.45rem;
+  }
+
+  .card-description {
+    font-size: .83rem;
   }
 }

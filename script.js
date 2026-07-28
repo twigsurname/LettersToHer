@@ -184,36 +184,36 @@ const letters = [
 ];
 
 const hugMessages = [
-  "Come here, my love. You do not have to say anything. Just stay in my arms for a while. 🫂",
-  "I’m wrapping both arms around you and holding you until your breathing feels softer. 🫂",
-  "You can lean all your weight on me right now. I’ve got you. 🫂",
-  "A long quiet hug, my hand on your back, and no pressure to feel better yet. 🫂",
-  "Come closer, baby. Let me hold the part of you that feels tired today. 🫂",
-  "You are safe in this hug. Nothing is required from you here. 🫂",
-  "I’m pulling you against my chest and kissing your forehead very slowly. 🫂",
-  "Stay here for as long as you need. I am not rushing you anywhere. 🫂",
-  "This hug is warm, tight, and completely yours. 🫂",
-  "I wish I could hold your face, look at you gently, and remind you that you are deeply loved. 🫂",
-  "Let your shoulders drop, unclench your jaw, and imagine me holding you close. 🫂",
-  "You do not need to be strong inside my arms. You can be soft with me. 🫂",
-  "I’m here, baby. Even in the quiet, even while I’m asleep, my love is still around you. 🫂",
-  "A hug from me that says: I see you, I love you, and you are not alone. 🫂",
-  "Come hide in my arms for a minute. The world can wait outside. 🫂",
-  "I’m holding you like I missed you all day, even if I only saw you a moment ago. 🫂",
-  "You deserve tenderness, especially on the days you feel hardest to comfort. 🫂",
-  "I’m rubbing your back slowly and telling you that everything does not need to be solved tonight. 🫂",
-  "This is your reminder that you are loved without having to earn it. Come here. 🫂",
-  "I’m holding you close enough for you to feel how certain I am about loving you. 🫂",
-  "No explanations. No fixing. Just my arms around you and a kiss on your head. 🫂",
-  "You can close your eyes now. I’ll keep you safe in this little moment. 🫂",
-  "I’m squeezing you a little tighter because I know you needed more than a small hug. 🫂",
-  "Come sit beside me, put your head on my shoulder, and let me keep you company. 🫂",
-  "Even when I cannot answer, you still have a place in my arms and in my heart. 🫂",
-  "I’m holding your hand inside this hug so you know I’m not letting go. 🫂",
-  "You are not too much. Your feelings are not too much. Come here, my love. 🫂",
-  "Imagine me whispering, ‘I’m here, baby,’ while I hold you against me. 🫂",
-  "This hug carries every soft thing I would say if I were beside you right now. 🫂",
-  "I love you. I choose you. And right now, I’m holding you as close as I can. 🫂"
+  "Come here, baby. You do not have to carry everything alone right now.",
+  "I am holding you close until your body remembers that it is safe to soften.",
+  "You can rest here for a while. Nothing is expected from you in this moment.",
+  "Let your shoulders drop. I have you, and you do not need to explain anything.",
+  "This hug is warm, quiet, and as long as you need it to be.",
+  "Imagine my arms around you and my cheek resting gently against your head.",
+  "You are safe with me, even on the days when your heart feels heavy.",
+  "I would pull you closer, kiss your forehead, and stay until you felt calmer.",
+  "You do not have to be strong right now. Let me hold the softer parts of you.",
+  "Stay here with me for one slow breath. You are loved exactly as you are.",
+  "I am wrapping you in the kind of hug that makes the whole world go quiet.",
+  "Nothing needs fixing this second. Just let yourself be held.",
+  "I am here, close to you in every way I can be until I can hold you properly.",
+  "You can melt into my arms and leave the worrying outside for a little while.",
+  "This is your reminder that you are deeply loved, even when you feel unsure.",
+  "I would hold your face, kiss your forehead, and tell you that we are okay.",
+  "Come closer. There is room for every feeling you have inside this hug.",
+  "You are not too much. You never have to make yourself smaller to be held by me.",
+  "Take one deep breath and imagine me pulling you gently against my chest.",
+  "I am not going anywhere. You can relax into this moment with me.",
+  "Let this hug carry the weight for you until you feel a little lighter.",
+  "I wish I could hold you right now, so let these words be my arms around you.",
+  "You deserve tenderness tonight, especially from yourself and always from me.",
+  "I am holding you with no questions, no pressure, and no rush to feel better.",
+  "Close your eyes for a second. I am right beside you, holding you carefully.",
+  "You are my love, and I would choose to comfort you every single time.",
+  "Let yourself breathe. You are safe, wanted, and very loved here.",
+  "I am giving you the softest hug and keeping you close until the ache passes.",
+  "You do not need the right words. Just come here and let me love you quietly.",
+  "This hug says everything I cannot say while I am away: I love you, and I am here."
 ];
 
 function randomItem(items) {
@@ -229,8 +229,9 @@ function renderHome() {
     link.className = "letter-card";
     link.href = `letter.html?id=${encodeURIComponent(letter.id)}`;
     link.innerHTML = `
-      <span class="letter-icon">${letter.icon}</span>
-      <h2>${letter.cardTitle}</h2>
+      <span class="card-open-when">Open when</span>
+      <span class="letter-icon" aria-hidden="true">${letter.icon}</span>
+      <span class="card-description">${letter.title}</span>
     `;
     grid.appendChild(link);
   });
@@ -259,16 +260,7 @@ function renderLetter() {
 
   document.getElementById("missionText").textContent = letter.mission;
 
-  setupLetterHug();
   setupAudio(letter);
-}
-
-function setupLetterHug() {
-  const button = document.getElementById("anotherHugButton");
-  const result = document.getElementById("letterHugResult");
-  button.addEventListener("click", () => {
-    result.textContent = randomItem(hugMessages);
-  });
 }
 
 function setupAudio(letter) {

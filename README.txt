@@ -38,3 +38,6 @@ VERSION 2 CHANGES
 - Removed subtitle text under each topic
 - Removed light mode
 - Cleaner starry-night background
+
+
+V2.1: nine requested homepage and letter navigation adjustments applied.
