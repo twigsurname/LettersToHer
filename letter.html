@@ -5,43 +5,33 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <meta name="theme-color" content="#171228" />
   <title>Open When...</title>
-  <link rel="stylesheet" href="styles.css?v=21" />
+  <link rel="stylesheet" href="styles.css?v=31" />
 </head>
-<body class="letter-page">
-  <main class="letter-shell">
-<section class="letter-stage">
-      <div class="envelope-back"></div>
+<body class="home-page">
+  <main class="home-shell">
+    <section class="hero">
+      <p class="eyebrow">A little place made just for you</p>
+      <h1>Open When...</h1>
+      <p class="hero-copy">Choose what your heart needs tonight.</p>
 
-      <article class="paper-letter">
-        <p class="letter-kicker">Open when...</p>
-        <h1 id="letterTitle">you need me</h1>
-        <div id="letterBody" class="letter-body"></div>
+      <button id="hugButton" class="hug-button" type="button">
+        <span>I need a hug</span>
+        <small>tap me</small>
+      </button>
 
-        <section id="audioSection" class="audio-card" hidden>
-          <p class="audio-label">Need to hear me instead?</p>
-          <button id="audioButton" class="audio-button" type="button">
-            <span class="audio-symbol">▶</span>
-            <span class="audio-text">Play my voice message</span>
-          </button>
-          <audio id="voiceNote" preload="metadata"></audio>
-          <p id="audioStatus" class="audio-status" aria-live="polite"></p>
-        </section>
-      </article>
-
-      <aside class="mission-strip">
-        <span class="mission-pin">✦</span>
-        <div>
-          <p class="mission-label">A tiny mission for you</p>
-          <p id="missionText"></p>
-        </div>
-      </aside>
-
-      <div class="letter-actions">
-        <a class="primary-button" href="index.html">Back to main page</a>
-      </div>
+      <div id="hugResult" class="hug-result" aria-live="polite"></div>
     </section>
+
+    <section class="letters-section" aria-label="Open when letters">
+      <div id="lettersGrid" class="letters-grid"></div>
+    </section>
+
+    <footer>
+      Made with love, for the nights that feel a little too quiet.
+    </footer>
   </main>
 
-  <script src="script.js?v=21"></script>
+  <script src="https://cdn.jsdelivr.net/npm/twemoji@14.0.2/dist/twemoji.min.js" crossorigin="anonymous"></script>
+  <script src="script.js?v=31"></script>
 </body>
 </html>
