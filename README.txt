@@ -1,55 +1,51 @@
-OPEN WHEN WEBSITE — QUICK START
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <meta name="theme-color" content="#171228" />
+  <title>Open When...</title>
+  <link rel="stylesheet" href="styles.css?v=55" />
+</head>
+<body class="letter-page">
+  <main class="letter-shell">
+<section class="letter-stage">
+      <div class="envelope-back"></div>
 
-Files:
-- index.html = home page
-- letter.html = all letter pages
-- styles.css = design
-- script.js = letter text and website behavior
-- audio/ = put your voice notes here
+      <article class="paper-letter">
+        <p class="letter-kicker">Open when...</p>
+        <h1 id="letterTitle">you need me</h1>
+        <div id="letterBody" class="letter-body"></div>
 
-VOICE NOTES
-Record two voice messages on your phone and save/export them as MP3.
+        <section id="audioSection" class="audio-card" hidden>
+          <p class="audio-label">Need to hear me instead?</p>
+          <button id="audioButton" class="audio-button" type="button">
+            <span class="audio-symbol">▶</span>
+            <span class="audio-text">Play my voice message</span>
+          </button>
+          <audio id="voiceNote" preload="metadata"></audio>
+          <p id="audioStatus" class="audio-status" aria-live="polite"></p>
+        </section>
+      </article>
 
-Rename them exactly:
-1. goodnight-one.mp3
-2. goodnight-two.mp3
+      <aside class="mission-strip">
+        <span class="mission-pin">✦</span>
+        <div>
+          <p class="mission-label">A tiny mission for you</p>
+          <p id="missionText"></p>
+        </div>
+      </aside>
 
-Then place them inside the audio folder.
+      <div class="letter-actions">
+        <a class="primary-button" href="index.html">Back to main page</a>
+      </div>
+    </section>
+  </main>
 
-EDITING THE LETTERS
-Open script.js.
-Each letter has:
-- cardTitle
-- body
-- mission
+  <script src="script.js?v=55"></script>
 
-Change only the text between quotation marks.
-Be careful not to delete commas or quotation marks.
+  <button id="musicToggle" class="music-toggle" type="button" aria-label="Play background music" title="Play background music">♪</button>
+  <audio id="backgroundMusic" src="audio/soft-night-music.mp3" loop preload="auto"></audio>
 
-GITHUB PAGES
-Upload every file and folder to one GitHub repository.
-Then go to:
-Settings > Pages > Deploy from a branch > main > /(root) > Save
-
-
-VERSION 2 CHANGES
-- Envelope-shaped topic cards
-- Open envelope behind each paper letter
-- Removed subtitle text under each topic
-- Removed light mode
-- Cleaner starry-night background
-
-
-V2.1: nine requested homepage and letter navigation adjustments applied.
-
-REFERENCE-MATCH UPDATE
-- Envelope body changed to cool off-white, with a slightly darker solid flap.
-- Envelope content placement now follows the supplied reference.
-- Flat text symbols are used instead of shaded emoji artwork.
-- Added original soft looping background music and a small mute button.
-
-TAN + MUSIC FIX
-- Original emojis restored.
-- All envelope text uppercase.
-- Light tan opposite gradients added.
-- Music button now starts audio on the first click.
+</body>
+</html>
